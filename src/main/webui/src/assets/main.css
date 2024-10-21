@@ -1,0 +1,24 @@
+@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.button {
+  @apply flex items-center gap-1 text-xs xl:text-sm py-2 px-4 justify-center rounded-lg font-bold;
+}
+.button-primary {
+  @apply bg-rise-primary-blue text-white
+}
+.button-accent {
+  @apply bg-rise-accent text-white
+}
+.button-flat {
+  @apply border border-rise-primary-blue rounded-full text-rise-primary-blue;
+}
+.button-flat-active {
+  @apply bg-rise-primary-blue text-white border-rise-accent
+}
+
+a {
+  @apply text-rise-primary-blue;
+}
