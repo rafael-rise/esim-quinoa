@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --base=/quinoa",
-    "build": "vite build --base=/quinoa",
-    "preview": "vite preview --base=/quinoa"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "pinia": "^2.2.4",
