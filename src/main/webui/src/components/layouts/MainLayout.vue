@@ -2,7 +2,6 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { useRouter } from 'vue-router';
 const router = useRouter()
-// import TheWelcome from '../components/TheWelcome.vue'
 const goHome = () => {
     router.push("/")
 }

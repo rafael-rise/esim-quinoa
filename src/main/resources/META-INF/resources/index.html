@@ -162,11 +162,9 @@
       <div class="content">
         <div class="company-logo"></div>
         <p class="title">Beli eSIM</p>
-        <div class="provider-list">
-          <div class="provider"></div>
-          <div class="provider"></div>
-          <div class="provider"></div>
-        </div>
+        <form id="selectProviderForm" action="/api/data" method="get" class="provider-list">
+          <input type="hidden" id="secretKey" name="secretKey" value="rahasia">
+        </form>
       </div>
       <div class="footer">
         <p>Copyright &copy; 2024</p>
@@ -174,6 +172,21 @@
       </div>
     </div>
   </div>
+  <script>
+    let providerList = ['telkomsel', 'xl', 'indosat']
+    let providerListContainer = document.getElementById("selectProviderForm")
+    providerList.forEach(provider => {
+      let divId = `prov/${provider}`
+      let divElement = document.createElement("div")
+      divElement.className = "provider"
+      divElement.id = divId
+      divElement.textContent = provider.toUpperCase()
+      providerListContainer.appendChild(divElement)
+      divElement.addEventListener('click', () => {
+        providerListContainer.submit()
+      })
+    })
+  </script>
 </body>
 
 </html>
