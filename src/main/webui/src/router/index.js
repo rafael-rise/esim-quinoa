@@ -8,7 +8,9 @@ const router = createRouter({
     {
       path: '',
       name: 'home',
-      component: HomeView
+      beforeEnter: () => {
+        window.location.replace("/index.html")
+      }
     },
     {
       component: MainLayout,

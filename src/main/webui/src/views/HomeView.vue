@@ -1,6 +1,4 @@
 <script setup>
-// import TheWelcome from '../components/TheWelcome.vue'
-window.location.replace("/index.html")
 </script>
 
 <template>
