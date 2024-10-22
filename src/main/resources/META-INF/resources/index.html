@@ -164,6 +164,7 @@
         <p class="title">Beli eSIM</p>
         <form id="selectProviderForm" action="/api/data" method="get" class="provider-list">
           <input type="hidden" id="secretKey" name="secretKey" value="rahasia">
+          <input type="hidden" id="providerName" name="providerName">
         </form>
       </div>
       <div class="footer">
@@ -183,6 +184,7 @@
       divElement.textContent = provider.toUpperCase()
       providerListContainer.appendChild(divElement)
       divElement.addEventListener('click', () => {
+        document.getElementById("providerName").value = provider
         providerListContainer.submit()
       })
     })
