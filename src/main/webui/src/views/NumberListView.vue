@@ -14,8 +14,7 @@
         filterModalRef.value.toggleShow()
     }
 
-    onMounted(() => {
-        // popupRef.value.toggle()
+    onMounted(async () => {
     })
 
     const confirmNumber = () => {

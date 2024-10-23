@@ -17,4 +17,13 @@ public class MainResource {
       return Response.status(Response.Status.FOUND).header("location", "/index.html").build();
     }
   }
+  @GET
+  @Path("/test")
+  public Response testApi(@QueryParam("token") String token) {
+    if (token == null || token == "") {
+      return Response.status(Response.Status.FOUND).header("location", "/index.html").build();
+    } else {
+      return Response.ok().entity("Cakep").build();
+    }
+  }
 }
