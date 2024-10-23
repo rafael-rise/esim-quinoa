@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISE E-SIM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div style="display: flex; flex-direction: column; align-items: center; position: absolute; top:1rem;">
+                <div class="company-logo" style="width: 4rem; height: 2rem"></div>
+                <p style="color: var(--rise-primary-blue); font-weight: bold; font-size: 60px;">404</p>
+            </div>
+            <div class="content" style="align-items: start; gap: .75rem;">
+                <p class="title">Oops!</p>
+                <p style="opacity: .85">We couldn't find the page you were looking for</p>
+                <button class="primary-btn" style="width: 100%" onclick="goHome()">Go Home</button>
+            </div>
+            <div class="footer">
+                <p>Copyright &copy; 2024</p>
+                <p>Supported by <a>PT Rajawali Inti Selular</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const goHome = () => {
+            window.location.replace("/index.html")
+        }
+    </script>
+</body>
+
+</html>
