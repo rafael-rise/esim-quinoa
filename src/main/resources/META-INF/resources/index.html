@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RISE E-SIM</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="content">
+        <div class="company-logo"></div>
+        <p class="title">Beli eSIM</p>
+        <form id="selectProviderForm" action="/api/data" method="get" class="provider-list">
+          <input type="hidden" id="secretKey" name="secretKey" value="rahasia">
+          <input type="hidden" id="providerName" name="providerName">
+        </form>
+      </div>
+      <div class="footer">
+        <p>Copyright &copy; 2024</p>
+        <p>Supported by <a>PT Rajawali Inti Selular</a></p>
+      </div>
+    </div>
+  </div>
+  <script>
+    let providerList = ['telkomsel', 'xl', 'indosat']
+    let providerListContainer = document.getElementById("selectProviderForm")
+    providerList.forEach(provider => {
+      let divId = `prov/${provider}`
+      let divElement = document.createElement("div")
+      divElement.className = "provider"
+      divElement.id = divId
+      divElement.textContent = provider.toUpperCase()
+      providerListContainer.appendChild(divElement)
+      divElement.addEventListener('click', () => {
+        document.getElementById("providerName").value = provider
+        providerListContainer.submit()
+      })
+    })
+  </script>
+</body>
+
+</html>

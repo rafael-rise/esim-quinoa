@@ -4,11 +4,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite --base=/quinoa",
-    "build": "vite build --base=/quinoa",
-    "preview": "vite preview --base=/quinoa"
+    "dev": "vite --base=/app",
+    "build": "vite build --base=/app",
+    "preview": "vite preview --base=/app"
   },
   "dependencies": {
+    "axios": "^1.6.8",
     "pinia": "^2.2.4",
     "vue": "^3.5.11",
     "vue-router": "^4.4.5"

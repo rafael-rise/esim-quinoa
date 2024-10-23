@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import MainLayout from '../components/layouts/MainLayout.vue'
 
 const router = createRouter({
@@ -7,12 +6,10 @@ const router = createRouter({
   routes: [
     {
       path: '',
-      redirect: '/home'
-    },
-    {
-      path: '/home',
       name: 'home',
-      component: HomeView
+      beforeEnter: () => {
+        window.location.replace("/index.html")
+      }
     },
     {
       component: MainLayout,
@@ -20,21 +17,50 @@ const router = createRouter({
         {
           path: '/numberList',
           name: 'Number List',
-          component: () => import('../views/NumberListView.vue')
+          component: () => import('../views/NumberListView.vue'),
+          meta: {
+            requiresAuth: true
+          }
         },
         {
           path: '/packageList',
           name: 'Package List',
-          component: () => import('../views/PackageListView.vue')
+          component: () => import('../views/PackageListView.vue'),
+          meta: {
+            requiresAuth: true
+          }
         },
         {
           path: '/transactionSummary',
           name: 'Transaction Summary',
-          component: () => import('../views/TransactionSummaryView.vue')
+          component: () => import('../views/TransactionSummaryView.vue'),
+          meta: {
+            requiresAuth: true
+          }
         }
       ]
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiresAuth) {
+     fetch("/api/test?" + new URLSearchParams({token: 'asd'}).toString(), {
+      method: "GET", redirect: 'follow'
+    })
+    .then(res => {
+      if (res.redirected) {
+        window.location.replace(res.url)
+      } else {
+        next()
+      }
+    }).catch(err => {
+      console.error(err)
+      window.alert("Something went wrong.")
+    })
+  } else {
+    next()
+  }
 })
 
 export default router
